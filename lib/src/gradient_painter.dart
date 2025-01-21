@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
@@ -130,8 +129,16 @@ class LinearGradientPainter extends LinearGradient implements GradientPainter {
   }
 
   @override
-  int get hashCode => hashValues(begin, end, hashList(colors), hashList(stops),
-      tileMode, transform, colorSpace, invert, density);
+  int get hashCode => Object.hash(
+      begin,
+      end,
+      Object.hashAll(colors),
+      Object.hashAll(stops?.toList() ?? []),
+      tileMode,
+      transform,
+      colorSpace,
+      invert,
+      density);
 }
 
 /// A 2D radial gradient.
@@ -232,11 +239,11 @@ class RadialGradientPainter extends RadialGradient implements GradientPainter {
   }
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
       center,
       radius,
-      hashList(colors),
-      hashList(stops),
+      Object.hashAll(colors),
+      Object.hashAll(stops?.toList() ?? []),
       tileMode,
       focal,
       focalRadius,
@@ -343,8 +350,17 @@ class SweepGradientPainter extends SweepGradient implements GradientPainter {
   }
 
   @override
-  int get hashCode => hashValues(center, startAngle, endAngle, hashList(colors),
-      hashList(stops), tileMode, transform, colorSpace, invert, density);
+  int get hashCode => Object.hash(
+      center,
+      startAngle,
+      endAngle,
+      Object.hashAll(colors),
+      Object.hashAll(stops?.toList() ?? []),
+      tileMode,
+      transform,
+      colorSpace,
+      invert,
+      density);
 }
 
 extension _BuildStops on GradientPainter {

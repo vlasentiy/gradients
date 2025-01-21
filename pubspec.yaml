@@ -7,8 +7,8 @@ version: 0.1.1+2
 homepage: https://github.com/james-alex/gradients
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.6.1 <4.0.0"
+  flutter: ">=3.27.2"
 
 dependencies:
   flutter:
